@@ -1,4 +1,4 @@
-$url = "https://raw.githubusercontent.com/jaimealberto/scripts/main/Windows/Ansible/Upgrade-Poweshell.ps1"
+$url = "https://raw.githubusercontent.com/jaimealberto/scripts/main/Windows/Ansible/Upgrade-PowerShell.ps1"
 $file = "$env:temp\Upgrade-PowerShell.ps1"
 $username = "Administrador"
 $password = "SuperPassword123!"
