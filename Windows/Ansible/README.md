@@ -3,7 +3,7 @@
 1. Abiremos la consola de PowerShell con privilegios de administrador.
 2. Levantar el servicio.
 ```powershell
-PS C:/> Enable-PSRemoting -force
+PS C:/> Enable-PSRemoting -SkipNetworkProfileCheck
 ```
 3. Inicio automatico.
 ```powershell
