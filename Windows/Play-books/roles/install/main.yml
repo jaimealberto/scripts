@@ -1,0 +1,42 @@
+#####################################################################
+# Instala todas las actualizaciones de seguridad, críticas y rollups.
+# AVISO: REINICIA EL EQUIPO SI ES NECESARIO
+#####################################################################
+tasks:
+  - name: Instala todas las actualizaciones de seguridad, críticas y rollups.
+    ansible.windows.win_updates:
+      category_names:
+        - CriticalUpdates
+        - SecurityUpdates
+        - UpdateRollups
+      state: installed
+      reboot: true
+# Opcionalmente, se puede aumentar el reboot_timeout
+# para sobrevivir a actualizaciones largas durante el reinicio
+#  ansible.windows.win_updates:
+#    reboot: yes
+#    reboot_timeout: 3600
+# dejamos un log en la raiz del host remoto por si es necesario
+      log_path: C:\ansible.txt
+#- name: Instala todas las actualizaciones de seguridad con reinicio automático
+#  ansible.windows.win_updates:
+#    category_names:
+#    - SecurityUpdates
+#    reboot: yes
+#- name: Instalar sólo determinadas actualizaciones en función de los números de KB
+#  ansible.windows.win_updates:
+#    category_name:
+#    - SecurityUpdates
+#    accept_list:
+#    - KB4056892
+#    - KB4073117
+#
+#- name: Excluir las actualizaciones en función del título de la actualización
+#  ansible.windows.win_updates:
+#    category_name:
+#    - SecurityUpdates
+#    - CriticalUpdates
+#    reject_list:
+#    - Windows Malicious Software Removal Tool for Windows
+#    - \d{4}-\d{2} Cumulative Update for Windows Server 2016
+#

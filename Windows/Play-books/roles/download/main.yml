@@ -1,0 +1,11 @@
+#########################################################
+# Busca actualizaciones y devuelve la lista (si las hay).
+#########################################################
+tasks:
+  - name: Busca actualizaciones y devuelve la lista (si las hay).
+    win_updates:
+      category_names:
+        - SecurityUpdates
+        - CriticalUpdates
+        - UpdateRollups
+      state: downloaded

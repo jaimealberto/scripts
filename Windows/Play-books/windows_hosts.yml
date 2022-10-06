@@ -1,8 +1,8 @@
 ---
 # Ejemplo:  ansible-playbook windows_update_hosts.yml -C
 # ansible-galaxy collection install ansible.windows
-# https://github.com/jaimealberto
+# 
 - hosts: windows
   roles:
-    - check
+    - search
     - update
