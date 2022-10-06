@@ -1,0 +1,14 @@
+#####################################################################
+# Instala todas las actualizaciones de seguridad, críticas y rollups.
+# AVISO: REINICIA EL EQUIPO SI ES NECESARIO
+#####################################################################
+tasks:
+  - name: Instala todas las actualizaciones de seguridad, críticas y rollups.
+    ansible.windows.win_updates:
+      category_names:
+        - CriticalUpdates
+        - SecurityUpdates
+        - UpdateRollups
+      state: installed
+      reboot: true
+      log_path: C:\ansible.txt
