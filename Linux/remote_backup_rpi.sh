@@ -5,7 +5,7 @@
 # Fecha: 05/06/2023                                                           #
 # Descripción: Backup remoto Raspberry Pi                                     #
 # Autor: jaimealberto.io                                                      #
-# Requimientos: Conexion mediante lleve ssh sin password gzip msmtp           #
+# Requimientos: Conexion mediante llave ssh sin password gzip msmtp           #
 # Configuracion msmtp                                                         #
 # creacion del fichero .msmtprc                                               #
 # account default                                                             #
@@ -18,7 +18,7 @@
 # user <quienenviaelcorreo>                                                   #
 # password <passord de la cuenta que envia el correo>                         #
 # logfile ~/.msmtp.log                                                        #
-# damos los permisos necesarios al fichero de configuracion                   #
+# Damos los permisos necesarios al fichero de configuracion                   #
 # chmod 600 .msmtprc                                                          #
 # Checks: ping, integridad fichero backkup, envio correo caso de fallo        # 
 # Alertas: envio correo fallo ping o integridad fichero backkup               # 
