@@ -93,7 +93,16 @@ time_stamp=$(date +%H:%M:%S)
 echo "$time_stamp Backup finalizado correctamente."
 time_stamp=$(date +%H:%M:%S)
 echo "$time_stamp Borrando backups antiguos, +2 dias."
-find $working -name "*.gz" -type f -mtime +2 -delete
+find $working -name "*.gz" -type f -mtime +2 -exec rm {} \; 
 echo "$time_stamp Borrando logs antiguos, +2 dias."
-find $working_log -name "*.log" -type f -mtime +2 -delete
+find $working_log -name "*.log" -type f -mtime +2 -exec rm {} \; 
 echo "$time_stamp Fin del script, ejecucion correcta."
+
+: '
+-mtime n: Encuentra archivos modificados hace "n" días.
+-ctime n: Encuentra archivos cuyo estado fue cambiado hace "n" días.
+-atime n: Encuentra archivos accedidos por última vez hace "n" días.
+-newer file: Encuentra archivos más nuevos que "file". 
+-mmin n: Encuentra archivos modificados hace "n" minutos.
+-amin n: Encuentra archivos accedidos por última vez hace "n" minutos.
+'
