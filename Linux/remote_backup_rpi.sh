@@ -2,12 +2,12 @@
 
 ###############################################################################
 # Script: remote_backup_rpi.sh                                                #
-# Fecha: 05/06/2023                                                           #
-# Descripción: Backup remoto Raspberry Pi                                     #
-# Autor: jaimealberto.io                                                      #
-# Requimientos: Conexion mediante llave ssh sin password gzip msmtp           #
-# Configuracion msmtp                                                         #
-# creacion del fichero .msmtprc                                               #
+# Date: 16/06/2023                                                            #
+# Description:: Backup remoto Raspberry Pi                                    #
+# Author: jaimealberto.io                                                     #
+# Requirements: Connection via ssh key without password. gzip msmtp           #
+# Config msmtp                                                                #
+# Creation of the file .msmtprc                                               #
 # account default                                                             #
 # host smtp.gmail.com                                                         #
 # port 587                                                                    #
@@ -18,14 +18,14 @@
 # user <quienenviaelcorreo>                                                   #
 # password <passord de la cuenta que envia el correo>                         #
 # logfile ~/.msmtp.log                                                        #
-# Damos los permisos necesarios al fichero de configuracion                   #
+# We give the necessary permissions to the configuration file                 #
 # chmod 600 .msmtprc                                                          #
-# Checks: ping, integridad fichero backkup, envio correo caso de fallo        # 
-# Alertas: envio correo fallo ping o integridad fichero backkup               # 
-# Licencia CC BY-NC-SA 4.0                                                    #
+# Checks: ping, backkup file integrity, send mail in case of failure          # 
+# Alerts: ping failure mailing or backkup file integrity                      # 
+# License: CC BY-NC-SA 4.0                                                    #
 ###############################################################################
 
-# Parametros de configuracion
+# Parameters of configuration
 host_remoto="<hostname_descriptivo>"
 ip_remota="<ip_o_fqdn>"
 usuario="<user>"
@@ -36,30 +36,30 @@ working="<destino_copia>"
 working_log="<destino_log>"
 mail_to="destino_alerta@dominio.com"
 
-# Creando archivo de log
+# Creating log file
 touch $working_log$fecha_actual.log
 
-# Ruta del archivo de log
+# Path of log file
 log_file="$working_log$fecha_actual.log"
 
-# Redirigir la salida estándar y de error al archivo de log
+# Redirect standard and error output to log file
 exec >> "$log_file" 2>&1
 
-# Comandos y lógica del script...
+# Commands and script logic...
 echo "$time_stamp Iniciando el script."
 
-# Check conexion de red ping
+# Check ping network connection
 ping -c 4 $ip_remota > /dev/null
 
-# Verificar el código de salida del comando ping
+# Verify the ping command output code
 if [ $? -eq 0 ]; then
     time_stamp=$(date +%H:%M:%S)
     echo "$time_stamp Ping a $host_remoto ok."
     time_stamp=$(date +%H:%M:%S)
     echo "$time_stamp Comienza el backup."
-    # Comando de copia remota usando dd y SSH
+    # Remote copy command using dd and SSH
     ssh -o ServerAliveInterval=30 -o ServerAliveCountMax=2 $usuario@$ip_remota "sudo dd if=$origen bs=1M status=progress | gzip -" | dd of=$working$host_remoto$fecha_actual.gz
-        # Verificacion integridad del backup
+        # Backup integrity verification
         gzip -t $working$host_remoto$fecha_actual.gz
         if [ $? -eq 0 ]; then
             time_stamp=$(date +%H:%M:%S)
@@ -93,16 +93,7 @@ time_stamp=$(date +%H:%M:%S)
 echo "$time_stamp Backup finalizado correctamente."
 time_stamp=$(date +%H:%M:%S)
 echo "$time_stamp Borrando backups antiguos, +2 dias."
-find $working -name "*.gz" -type f -mtime +2 -exec rm {} \; 
+find $working -name "*.gz" -type f -ctime +2 -exec rm {} \; 
 echo "$time_stamp Borrando logs antiguos, +2 dias."
-find $working_log -name "*.log" -type f -mtime +2 -exec rm {} \; 
+find $working_log -name "*.log" -type f -ctime +2 -exec rm {} \; 
 echo "$time_stamp Fin del script, ejecucion correcta."
-
-: '
--mtime n: Encuentra archivos modificados hace "n" días.
--ctime n: Encuentra archivos cuyo estado fue cambiado hace "n" días.
--atime n: Encuentra archivos accedidos por última vez hace "n" días.
--newer file: Encuentra archivos más nuevos que "file". 
--mmin n: Encuentra archivos modificados hace "n" minutos.
--amin n: Encuentra archivos accedidos por última vez hace "n" minutos.
-'
