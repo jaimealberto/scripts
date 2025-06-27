@@ -26,74 +26,74 @@
 ###############################################################################
 
 # Parameters of configuration
-host_remoto="<hostname_descriptivo>"
-ip_remota="<ip_o_fqdn>"
-usuario="<user>"
-fecha_actual=$(date +%d%m%Y)
-time_stamp=$(date +%H:%M:%S)
-origen="/dev/mmcblk0"
-working="<destino_copia>"
-working_log="<destino_log>"
+REMOTE_HOST="<hostname_descriptivo>"
+REMOTE_IP="<ip_o_fqdn>"
+USER="<user>"
+CURRENT_DATE=$(date +%d%m%Y)
+TIME_STAMP=$(date +%H:%M:%S)
+SOURCE="/dev/mmcblk0"
+WORKING="<destino_copia>"
+WORKING_LOG="<destino_log>"
 mail_to="destino_alerta@dominio.com"
 
 # Creating log file
-touch $working_log$fecha_actual.log
+touch $WORKING_LOG$CURRENT_DATE.log
 
 # Path of log file
-log_file="$working_log$fecha_actual.log"
+LOG_FILE="$WORKING_LOG$CURRENT_DATE.log"
 
 # Redirect standard and error output to log file
-exec >> "$log_file" 2>&1
+exec >> "$LOG_FILE" 2>&1
 
 # Commands and script logic...
-echo "$time_stamp Iniciando el script."
+echo "$TIME_STAMP Iniciando el script."
 
 # Check ping network connection
-ping -c 4 $ip_remota > /dev/null
+ping -c 4 $REMOTE_IP > /dev/null
 
 # Verify the ping command output code
 if [ $? -eq 0 ]; then
-    time_stamp=$(date +%H:%M:%S)
-    echo "$time_stamp Ping a $host_remoto ok."
-    time_stamp=$(date +%H:%M:%S)
-    echo "$time_stamp Comienza el backup."
+    TIME_STAMP=$(date +%H:%M:%S)
+    echo "$TIME_STAMP Ping a $REMOTE_HOST ok."
+    TIME_STAMP=$(date +%H:%M:%S)
+    echo "$TIME_STAMP Comienza el backup."
     # Remote copy command using dd and SSH
-    ssh -o ServerAliveInterval=30 -o ServerAliveCountMax=2 $usuario@$ip_remota "sudo dd if=$origen bs=1M status=progress | gzip -" | dd of=$working$host_remoto$fecha_actual.gz
+    ssh -o ServerAliveInterval=30 -o ServerAliveCountMax=2 $USER@$REMOTE_IP "sudo dd if=$SOURCE bs=1M status=progress | gzip -" | dd of=$WORKING$REMOTE_HOST$CURRENT_DATE.gz
         # Backup integrity verification
-        gzip -t $working$host_remoto$fecha_actual.gz
+        gzip -t $WORKING$REMOTE_HOST$CURRENT_DATE.gz
         if [ $? -eq 0 ]; then
-            time_stamp=$(date +%H:%M:%S)
-            echo "$time_stamp Verificacion integridad backup ok."
+            TIME_STAMP=$(date +%H:%M:%S)
+            echo "$TIME_STAMP Verificacion integridad backup ok."
         else
-            time_stamp=$(date +%H:%M:%S)
-            echo "$time_stamp Error verficacion backup, fallo en el backup."
-            subject="Fallo verificacion backup $host_remoto"
-            time_stamp=$(date +%H:%M:%S)
-            echo "$time_stamp Enviando correo al administrador."
-            body="La verificacion del backup de $host_remoto fallado."
+            TIME_STAMP=$(date +%H:%M:%S)
+            echo "$TIME_STAMP Error verficacion backup, fallo en el backup."
+            subject="Fallo verificacion backup $REMOTE_HOST"
+            TIME_STAMP=$(date +%H:%M:%S)
+            echo "$TIME_STAMP Enviando correo al administrador."
+            body="La verificacion del backup de $REMOTE_HOST fallado."
             echo -e "Subject:$subject\n$body" | msmtp -a default -t $mail_to
-            time_stamp=$(date +%H:%M:%S)
-            echo "$time_stamp Fin del script."
+            TIME_STAMP=$(date +%H:%M:%S)
+            echo "$TIME_STAMP Fin del script."
             exit
         fi      
 else
-    time_stamp=$(date +%H:%M:%S)
-    echo "$time_stamp Error al hacer ping a $ip_remota . El backup de $host_remoto no se pudo realizar, sin conexion de red."
-    subject="Fallo conexion de red $host_remoto"
-    time_stamp=$(date +%H:%M:%S)
-    echo "$time_stamp Enviando correo al administrador."
-    body="$host_remoto no responde a ping, no se puede realizar el backup."
+    TIME_STAMP=$(date +%H:%M:%S)
+    echo "$TIME_STAMP Error al hacer ping a $REMOTE_IP . El backup de $REMOTE_HOST no se pudo realizar, sin conexion de red."
+    subject="Fallo conexion de red $REMOTE_HOST"
+    TIME_STAMP=$(date +%H:%M:%S)
+    echo "$TIME_STAMP Enviando correo al administrador."
+    body="$REMOTE_HOST no responde a ping, no se puede realizar el backup."
     echo -e "Subject:$subject\n$body" | msmtp -a default -t $mail_to
-    time_stamp=$(date +%H:%M:%S)
-    echo "$time_stamp Fin del script."
+    TIME_STAMP=$(date +%H:%M:%S)
+    echo "$TIME_STAMP Fin del script."
     exit
 fi
 
-time_stamp=$(date +%H:%M:%S)
-echo "$time_stamp Backup finalizado correctamente."
-time_stamp=$(date +%H:%M:%S)
-echo "$time_stamp Borrando backups antiguos, +2 dias."
-find $working -name "*.gz" -type f -ctime +2 -exec rm {} \; 
-echo "$time_stamp Borrando logs antiguos, +2 dias."
-find $working_log -name "*.log" -type f -ctime +2 -exec rm {} \; 
-echo "$time_stamp Fin del script, ejecucion correcta."
+TIME_STAMP=$(date +%H:%M:%S)
+echo "$TIME_STAMP Backup finalizado correctamente."
+TIME_STAMP=$(date +%H:%M:%S)
+echo "$TIME_STAMP Borrando backups antiguos, +2 dias."
+find $WORKING -name "*.gz" -type f -ctime +2 -exec rm {} \; 
+echo "$TIME_STAMP Borrando logs antiguos, +2 dias."
+find $WORKING_LOG -name "*.log" -type f -ctime +2 -exec rm {} \; 
+echo "$TIME_STAMP Fin del script, ejecucion correcta."
