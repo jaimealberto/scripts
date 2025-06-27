@@ -2,7 +2,7 @@
 
 ###############################################################################
 # Script: remote_backup_rpi.sh                                                #
-# Date: 16/06/2023                                                            #
+# Date: 27/06/2025                                                            #
 # Description:: Backup remoto Raspberry Pi                                    #
 # Author: jaimealberto.io                                                     #
 # Requirements: Connection via ssh key without password. gzip msmtp           #
