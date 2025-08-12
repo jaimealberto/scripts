@@ -13,15 +13,17 @@
 # port 587                                                                    #
 # from <quienenviaelcorreo@gmail.com>                                         #
 # tls on                                                                      #
-# tls_starttls on                                                             # 
+# tls_starttls on                                                             #
 # auth on                                                                     #
 # user <quienenviaelcorreo>                                                   #
-# password <passord de la cuenta que envia el correo>                         #
+# password <passord de la cuenta que envía el correo>                         #
 # logfile ~/.msmtp.log                                                        #
 # We give the necessary permissions to the configuration file                 #
 # chmod 600 .msmtprc                                                          #
-# Checks: ping, backkup file integrity, send mail in case of failure          # 
-# Alerts: ping failure mailing or backkup file integrity                      # 
+# Checks: ping, backup file integrity, send mail in case of failure           #
+# Alerts: ping failure mailing or backup file integrity                       #
+# crontab -e add line:                                                        #
+# 00 1 * * * ~/scripts/remote_backup_rpi.sh >/dev/null 2>&1                   #
 # License: CC BY-NC-SA 4.0                                                    #
 ###############################################################################
 
