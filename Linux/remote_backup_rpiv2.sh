@@ -17,11 +17,11 @@ set -e
 # tls_starttls on                                                             #
 # auth on                                                                     #
 # user <quienenviaelcorreo>                                                   #
-# password <passord de la cuenta que envia el correo>                         #
+# password <passord de la cuenta que envía el correo>                         #
 # logfile ~/.msmtp.log                                                        #
 # We give the necessary permissions to the configuration file                 #
 # chmod 600 .msmtprc                                                          #
-# Checks: ping, backup file integrity, send mail in case of failure           #
+# Checks: ping, integridad fichero de backup , envió correo si falla          #
 # Alerts: ping failure mailing or backup file integrity                       #
 # 00 1 * * * ~/scripts/remote_backup_rpiv2.sh >/dev/null 2>&1                 #
 # License: CC BY-NC-SA 4.0                                                    #
