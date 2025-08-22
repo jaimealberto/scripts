@@ -1,15 +1,13 @@
 #!/bin/bash
+##############################################################################
+# Script: cf_dns_update.sh                                                   #
+# Date: 20/08/2025                                                           #
+# Description:: Actualizar un dominio o varios subdominios en CloudFlare     #
+# Author: jaimealberto.io                                                    #
+# Requirements: jq API Token CloudFlare read.                                #
+# License: CC BY-NC-SA 4.0                                                   #
+##############################################################################
 set -e
-
-#!/bin/bash
-###############################################################################
-# Script: update_cfdns.sh                                                     #
-# Date: 20/08/2025                                                            #
-# Description:: actualizar un domiio o varios subdominios en CloudFlare       #
-# Author: jaimealberto.io                                                     #
-# Requirements: jq API Token CloudFlare read.                                 #
-# License: CC BY-NC-SA 4.0                                                    #
-###############################################################################
 # --- CONFIGURACIÓN ---
 CF_API_TOKEN="<TU_API_TOKEN>"
 CF_ZONE_ID="<TU_ZONE_ID>"

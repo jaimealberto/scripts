@@ -1,6 +1,6 @@
 #!/bin/bash
 ###############################################################################
-# Script: getinfo_cf.sh                                                       #
+# Script: cf_dns_getinfo.sh                                                   #
 # Date: 20/08/2025                                                            #
 # Description:: Consulta de tus dominios y subdominios indicando las zonas    #
 # Author: jaimealberto.io                                                     #

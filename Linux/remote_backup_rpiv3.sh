@@ -1,6 +1,4 @@
 #!/bin/bash
-set -e
-
 ###############################################################################
 # Script: remote_backup_rpiv3.sh                                              #
 # Date: 08/08/2025 - Versión optimizada formato log                           #
@@ -28,6 +26,7 @@ set -e
 ###############################################################################
 # Mejoras respecto a al versión anterior                                      #
 # Se formatea el log del script en formato estándar de syslog                 #
+set -e
 # ==================== PARÁMETROS DE CONFIGURACIÓN ====================
 host_remoto="<hostname_descriptivo>"
 ip_remota="<ip_o_fqdn>"

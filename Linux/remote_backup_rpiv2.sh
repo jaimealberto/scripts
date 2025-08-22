@@ -1,6 +1,4 @@
 #!/bin/bash
-set -e
-
 ###############################################################################
 # Script: remote_backup_rpiv2.sh                                              #
 # Date: 01/08/2025 - Versión optimizada                                       #
@@ -36,6 +34,7 @@ set -e
 #  Comentarios y claridad                                                     #
 #  Ruta de logs más dinámica                                                  #
 # #############################################################################
+set -e
 # ==================== PARÁMETROS DE CONFIGURACIÓN ====================
 host_remoto="<hostname_descriptivo>"
 ip_remota="<ip_o_fqdn>"
