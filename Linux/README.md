@@ -5,6 +5,7 @@ Linux 🐧
 - cf_dns_getinfo.sh # Obtiene información de dominios y zonas registrados en CloudFlare.
 - cf_dns_update.sh # Actualización dinámica dns CloudFlare.
 - cf_subdomain_create.py # Permite crear subdominios de un dominio ya registrado en CloudFlare.
+- cf_subdomain_delete.py # Permite borrar subdominios de un dominio ya registrado en CloudFlare.
 - hosts.lst # Lista de host a controlar mediante ping del script ping_notify.sh.
 - install_duf_rpi.sh # Instalación duf para Raspberry pi, no esta el el repo de RaspyOs.
 - ping_notify.sh # Script que comprueba conectividad mediante ping lista hosts.lst.
