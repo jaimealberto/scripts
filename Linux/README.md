@@ -15,6 +15,8 @@ Linux 🐧
 - zerotier.sh # Instalación y configuración ZeroTier.
 - zt_acount_info.sh # Información general de la cuenta de ZeroTier.
 - zt_host_auth.sh # Lista , autoriza uno o todos o desautorizar hosts.
+- zt_host_delete.sh # Borra host de una red, antes se recomienda desautorizar.
+- zt_host_description.sh # Cambia la descripción de un host.
 - zt_host_infoc.sh # Muestra información de hosts y redes con colores.
 - zt_host_info.sh # Muestra información de hosts y redes.
 - zt_host_ipchange.sh # Cambia la ip de un host.
