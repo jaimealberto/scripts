@@ -1,0 +1,22 @@
+# Credenciales y configuración local (nunca versionar)
+*.env
+.env
+secrets.env
+*.key
+*.secret
+.msmtprc
+
+# Listas reales de hosts (versionar solo el .example)
+hosts.lst
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editores / SO
+.vscode/
+.idea/
+*.swp
+.DS_Store

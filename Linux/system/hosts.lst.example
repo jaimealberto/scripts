@@ -1,0 +1,10 @@
+# Lista de hosts a monitorizar con ping_notify.sh
+# -------------------------------------------------
+# - Un host por línea (dirección IP o nombre DNS).
+# - Las líneas vacías y las que empiezan por '#' se ignoran.
+# - Copia este fichero a 'hosts.lst' y edítalo con tus hosts:
+#       cp hosts.lst.example hosts.lst
+
+192.168.1.1
+raspberrypi.local
+nas.midominio.com
