@@ -23,8 +23,12 @@ chmod 700 "/home/$USER_NAME/.ssh"
 chmod 600 "/home/$USER_NAME/.ssh/authorized_keys"
 chown -R "$USER_NAME:$USER_NAME" "/home/$USER_NAME/.ssh"
 
-# Deshabilitar la contraseña para el usuario de administración remota (sudoers)
-sed -i '/^%sudo.*/a $USER_NAME    ALL=NOPASSWD: ALL' /etc/sudoers
+# Conceder sudo sin contraseña (NOPASSWD) de forma segura: un fichero propio en
+# /etc/sudoers.d (nunca editar /etc/sudoers directamente) con permisos 440 y
+# validado con visudo antes de darlo por bueno.
+printf '%s ALL=(ALL) NOPASSWD: ALL\n' "$USER_NAME" > "/etc/sudoers.d/$USER_NAME"
+chmod 440 "/etc/sudoers.d/$USER_NAME"
+visudo -cf "/etc/sudoers.d/$USER_NAME"
 
-# Borrar script despues de su ejecucion deshabilitado
-# rm $0
+# Borrar el script después de su ejecución (deshabilitado por defecto)
+# rm -- "$0"

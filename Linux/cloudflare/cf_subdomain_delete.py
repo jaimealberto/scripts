@@ -64,8 +64,8 @@ if __name__ == "__main__":
     domain = sys.argv[1]
     subdomain_name = sys.argv[2]
     
-    if CLOUDFLARE_API_TOKEN == "TU_TOKEN_DE_API_AQUI":
-        print("Error: Por favor, reemplaza 'TU_TOKEN_DE_API_AQUI' en el script con tu token de Cloudflare.")
+    if CLOUDFLARE_API_TOKEN == "<TU_API_TOKEN>":
+        print("Error: Por favor, reemplaza '<TU_API_TOKEN>' en el script con tu token de Cloudflare.")
         sys.exit(1)
 
     headers = {
