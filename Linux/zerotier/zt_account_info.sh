@@ -1,6 +1,6 @@
 #!/bin/bash
 ###############################################################################
-# Script: zt_acount_info.sh                                                   #
+# Script: zt_account_info.sh                                                  #
 # Date: 22/08/2025                                                            #
 # Description:: Muestra información general de la cuenta de ZeroTier          #
 # Author: jaimealberto.io                                                     #
