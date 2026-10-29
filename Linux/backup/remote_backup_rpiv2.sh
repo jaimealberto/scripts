@@ -24,16 +24,10 @@
 #   logfile ~/.msmtp.log
 #   Protege el fichero de configuración con: chmod 600 ~/.msmtprc
 #===============================================================================
-# Mejoras respecto a la versión anterior:                                     #
-#  Uso de variables y funciones: Se han agrupado las variables en un bloque,  #
-#  se ha creado una función para el envío de correos, y se ha utilizado la    #
-#  sintaxis de Bash más moderna.                                              #
-#  Manejo de errores mejorado: Las verificaciones de errores se agrupan, lo   #
-#   que hace el código más legible y eficiente. El script utiliza `set -e`    #
-#   para salir inmediatamente si un comando falla.                            #
-#  Comentarios y claridad                                                     #
-#  Ruta de logs más dinámica                                                  #
-# #############################################################################
+# Mejoras respecto a la versión anterior:
+#   - Variables agrupadas en un bloque y función para el envío de correos.
+#   - Sintaxis de Bash más moderna y manejo de errores centralizado (set -e).
+#   - Comentarios más claros y ruta de logs más dinámica.
 set -e
 # ==================== PARÁMETROS DE CONFIGURACIÓN ====================
 host_remoto="<hostname_descriptivo>"
