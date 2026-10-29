@@ -1,44 +1,41 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#===============================================================================
+# Nombre:       backup_opnsense.sh
+# Descripción:  Backup remoto de la configuración de OPNsense a través de su
+#               API, con alerta por correo si el host no responde al ping.
+# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Licencia:     MIT
+# Requisitos:   curl, msmtp y una API key/secret de OPNsense.
+# Uso:          ./backup_opnsense.sh
+# Nota:         Rellena los marcadores <...> de la configuración antes de usar.
+#
+# Configuración de msmtp (fichero ~/.msmtprc):
+#   account default
+#   host smtp.gmail.com
+#   port 587
+#   from <correo_origen@gmail.com>
+#   tls on
+#   tls_starttls on
+#   auth on
+#   user <correo_origen@gmail.com>
+#   password <contraseña de la cuenta que envía el correo>
+#   logfile ~/.msmtp.log
+#   Protege el fichero de configuración con: chmod 600 ~/.msmtprc
+#===============================================================================
 
-###############################################################################
-# Script: remote_backup_opnsense.sh                                           #
-# Date: 27/06/2025                                                            #
-# Description:: Backup remoto Raspberry OpnSense                              #
-# Author: jaimealberto.io                                                     #
-# Requirements: Api key                                                       #
-# Config msmtp                                                                #
-# Creation of the file .msmtprc                                               #
-# account default                                                             #
-# host smtp.gmail.com                                                         #
-# port 587                                                                    #
-# from <quienenviaelcorreo@gmail.com>                                         #
-# tls on                                                                      #
-# tls_starttls on                                                             # 
-# auth on                                                                     #
-# user <quienenviaelcorreo>                                                   #
-# password <passord de la cuenta que envia el correo>                         #
-# logfile ~/.msmtp.log                                                        #
-# We give the necessary permissions to the configuration file                 #
-# chmod 600 .msmtprc                                                          #
-# Checks: ping, send mail in case of failure                                  # 
-# Alerts: ping failure mailing                                                # 
-# License: CC BY-NC-SA 4.0                                                    #
-###############################################################################
-#!/bin/bash
-
-# Configuracion
+# Configuración
 OPNSENSE_HOST="https://<ip o fqdn>"
-REMOTE_IP="<ip execute ping>"
-REMOTE_HOST="<alias or descprintion name>"
-API_KEY="<your api key>"
-API_SECRET="<your scretet key>"
+REMOTE_IP="<ip a la que hacer ping>"
+REMOTE_HOST="<alias o nombre descriptivo>"
+API_KEY="<tu api key>"
+API_SECRET="<tu api secret>"
 DAY=$(date +%d%m%Y)
 TIME_STAMP=$(date +%H:%M:%S)
-PATH_FILE_BACKUP="<destination path file backup>"
-PATH_FILE_LOG="<destionation path file log>"
+PATH_FILE_BACKUP="<ruta destino del fichero de backup>"
+PATH_FILE_LOG="<ruta destino del fichero de log>"
 OUTPUT_BACKUP_FILE="$REMOTE_HOST$DAY.xml"
 OUTPUT_LOG_FILE="$REMOTE_HOST$DAY.log"
-MAIL_TO="<mal destination alert failed>"
+MAIL_TO="<correo destino de las alertas>"
 
 # Crear archivo de log
 touch "$PATH_FILE_LOG$REMOTE_HOST$DAY.log"

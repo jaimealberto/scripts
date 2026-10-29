@@ -1,14 +1,16 @@
+#!/usr/bin/env python3
+#===============================================================================
+# Nombre:       cf_subdomain_delete.py
+# Descripción:  Elimina un subdominio (registro DNS) de un dominio ya
+#               registrado en Cloudflare, desde la terminal.
+# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Licencia:     MIT
+# Requisitos:   Python 3, requests y un token de API de Cloudflare (edición DNS).
+# Uso:          ./cf_subdomain_delete.py <dominio_principal> <nombre_subdominio>
+# Nota:         Rellena los marcadores <...> de la configuración antes de usar.
+#===============================================================================
 import requests
 import sys
-
-###############################################################################
-# Script: delete_subdomain_cf.py                                              #
-# Date: 26/08/2025                                                            #
-# Description:: Eliminación de subdominios desde el terminal                  #
-# Author: jaimealberto.io                                                     #
-# Requirements: API Token CloudFlare con permisos de edición de DNS.          #
-# License: CC BY-NC-SA 4.0                                                    #
-###############################################################################
 # --- CONFIGURACIÓN ---
 #
 # Coloca aquí tu token de API de Cloudflare.

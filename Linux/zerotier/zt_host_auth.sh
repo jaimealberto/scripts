@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
-###############################################################################
-# Script: zt_host_auth.sh                                                     #
-# Date: 22/08/2025                                                            #
-# Description:: Autoriza un host a una red                                    #
-# Author: jaimealberto.io                                                     #
-# Requirements: jq API Token ZeroTier.                                        #
-# License: CC BY-NC-SA 4.0                                                    #
-###############################################################################
+#===============================================================================
+# Nombre:       zt_host_auth.sh
+# Descripción:  Lista los miembros de una red ZeroTier y autoriza o desautoriza
+#               hosts (uno, varios o todos los pendientes).
+# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Licencia:     MIT
+# Requisitos:   curl, jq y un token de API de ZeroTier.
+# Uso:          ./zt_host_auth.sh {list|authorize|unauthorize} <NETWORK_ID> [MEMBER]
+# Nota:         Rellena los marcadores <...> de la configuración antes de usar.
+#===============================================================================
 
 # 👉 Token de API de ZeroTier (genera uno en https://my.zerotier.com/account)
 TOKEN="<TU_API_TOKEN>"

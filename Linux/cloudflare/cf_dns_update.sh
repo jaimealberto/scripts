@@ -1,12 +1,14 @@
-#!/bin/bash
-##############################################################################
-# Script: cf_dns_update.sh                                                   #
-# Date: 20/08/2025                                                           #
-# Description:: Actualizar un dominio o varios subdominios en CloudFlare     #
-# Author: jaimealberto.io                                                    #
-# Requirements: jq API Token CloudFlare read.                                #
-# License: CC BY-NC-SA 4.0                                                   #
-##############################################################################
+#!/usr/bin/env bash
+#===============================================================================
+# Nombre:       cf_dns_update.sh
+# Descripción:  DNS dinámico (DDNS) en Cloudflare: actualiza el registro A de
+#               uno o varios dominios/subdominios con la IP pública actual.
+# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Licencia:     MIT
+# Requisitos:   curl, jq y un token de API de Cloudflare (permiso de edición DNS).
+# Uso:          ./cf_dns_update.sh
+# Nota:         Rellena los marcadores <...> de la configuración antes de usar.
+#===============================================================================
 set -e
 # --- CONFIGURACIÓN ---
 CF_API_TOKEN="<TU_API_TOKEN>"

@@ -1,30 +1,29 @@
-#!/bin/bash
-###############################################################################
-# Script: remote_backup_rpi.sh                                                #
-# Date: 27/06/2025                                                            #
-# Description:: Backup remoto Raspberry Pi                                    #
-# Author: jaimealberto.io                                                     #
-# Requirements: Connection via ssh key without password. gzip msmtp           #
-# Config msmtp                                                                #
-# Creation of the file .msmtprc                                               #
-# account default                                                             #
-# host smtp.gmail.com                                                         #
-# port 587                                                                    #
-# from <quienenviaelcorreo@gmail.com>                                         #
-# tls on                                                                      #
-# tls_starttls on                                                             #
-# auth on                                                                     #
-# user <quienenviaelcorreo>                                                   #
-# password <passord de la cuenta que envía el correo>                         #
-# logfile ~/.msmtp.log                                                        #
-# We give the necessary permissions to the configuration file                 #
-# chmod 600 .msmtprc                                                          #
-# Checks: ping, backup file integrity, send mail in case of failure           #
-# Alerts: ping failure mailing or backup file integrity                       #
-# crontab -e add line:                                                        #
-# 00 1 * * * ~/scripts/remote_backup_rpi.sh >/dev/null 2>&1                   #
-# License: CC BY-NC-SA 4.0                                                    #
-###############################################################################
+#!/usr/bin/env bash
+#===============================================================================
+# Nombre:       remote_backup_rpi.sh
+# Descripción:  Backup remoto en caliente de una Raspberry Pi (imagen de la SD
+#               vía dd+gzip sobre SSH), con alerta por correo si falla.
+#               Primera versión de la serie remote_backup_rpi.
+# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Licencia:     MIT
+# Requisitos:   Acceso SSH por clave sin contraseña, gzip y msmtp.
+# Uso:          ./remote_backup_rpi.sh
+# Programación: crontab -e  ->  00 1 * * * ~/scripts/remote_backup_rpi.sh >/dev/null 2>&1
+# Nota:         Rellena los marcadores <...> de la configuración antes de usar.
+#
+# Configuración de msmtp (fichero ~/.msmtprc):
+#   account default
+#   host smtp.gmail.com
+#   port 587
+#   from <correo_origen@gmail.com>
+#   tls on
+#   tls_starttls on
+#   auth on
+#   user <correo_origen@gmail.com>
+#   password <contraseña de la cuenta que envía el correo>
+#   logfile ~/.msmtp.log
+#   Protege el fichero de configuración con: chmod 600 ~/.msmtprc
+#===============================================================================
 
 # Parameters of configuration
 REMOTE_HOST="<hostname_descriptivo>"
@@ -67,7 +66,7 @@ if [ $? -eq 0 ]; then
             echo "$TIME_STAMP Verificacion integridad backup ok."
         else
             TIME_STAMP=$(date +%H:%M:%S)
-            echo "$TIME_STAMP Error verficacion backup, fallo en el backup."
+            echo "$TIME_STAMP Error en la verificación del backup, fallo en el backup."
             subject="Fallo verificacion backup $REMOTE_HOST"
             TIME_STAMP=$(date +%H:%M:%S)
             echo "$TIME_STAMP Enviando correo al administrador."

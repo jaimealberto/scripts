@@ -1,14 +1,16 @@
-#!/bin/bash
-
-###############################################################################
-# Script: install_duf_rpi.sh                                                  #
-# Date: 20/08/2025                                                            #
-# Description:: Instalación duf para Raspberry Pi.                            #
-# Repositorio: https://github.com/muesli/duf?tab=readme-ov-file               #
-# Necesario dado que duf no esta disponible en el repositorio oficial.        #
-# Author: jaimealberto.io                                                     #
-# License: CC BY-NC-SA 4.0                                                    #
-###############################################################################
+#!/usr/bin/env bash
+#===============================================================================
+# Nombre:       install_duf_rpi.sh
+# Descripción:  Instala la utilidad duf en Raspberry Pi OS descargando el
+#               binario más reciente desde GitHub, ya que no está disponible
+#               en los repositorios oficiales de Raspberry Pi OS.
+# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Licencia:     MIT
+# Requisitos:   curl, wget, tar y dpkg. Usa sudo para instalar en /usr/local/bin.
+# Uso:          ./install_duf_rpi.sh
+# Referencia:   https://github.com/muesli/duf
+#===============================================================================
+set -euo pipefail
 
 # Obtener la última versión del binario desde la API de GitHub
 LATEST_VERSION=$(curl -s "https://api.github.com/repos/muesli/duf/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')

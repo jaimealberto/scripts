@@ -1,22 +1,24 @@
-#!/bin/bash
+#!/usr/bin/env bash
+#===============================================================================
+# Nombre:       ping_notify.sh
+# Descripción:  Monitoriza por ping una lista de hosts (hosts.lst) y avisa en
+#               el escritorio mediante notify-send según el resultado.
+# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Licencia:     MIT
+# Requisitos:   iputils-ping y libnotify-bin (notify-send).
+# Uso:          ./ping_notify.sh
+# Nota:         Define los hosts en 'hosts.lst' (ver hosts.lst.example). Se
+#               ignoran las líneas vacías y las que empiezan por '#'.
+#===============================================================================
 
-###############################################################################
-# Script: ping_notify.sh                                                      #
-# Date: 16/06/2023                                                            #
-# Description:: Ping host list and notify desktop                             #
-# Author: jaimealberto.io                                                     #
-# Requirements: libnotify-bin                                                 #
-# Checks: ping                                                                # 
-# Alerts: send mesage notify-send                                             # 
-# License: CC BY-NC-SA 4.0                                                    #
-###############################################################################
-
-# Parameters of configuration
-# Hosts list
+# Lista de hosts (un host por línea; ver hosts.lst.example)
 archivo_hosts="hosts.lst"
 
 while IFS= read -r host
 do
+  # Ignorar líneas vacías y comentarios (#)
+  [[ "$host" =~ ^[[:space:]]*(#.*)?$ ]] && continue
+
   echo "Realizando ping a $host..."
   
   # Ejecutar el comando ping y capturar la salida

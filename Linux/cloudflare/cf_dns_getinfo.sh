@@ -1,12 +1,14 @@
-#!/bin/bash
-###############################################################################
-# Script: cf_dns_getinfo.sh                                                   #
-# Date: 20/08/2025                                                            #
-# Description:: Consulta de tus dominios y subdominios indicando las zonas    #
-# Author: jaimealberto.io                                                     #
-# Requirements: jq API Token CloudFlare read.                                 #
-# License: CC BY-NC-SA 4.0                                                    #
-###############################################################################
+#!/usr/bin/env bash
+#===============================================================================
+# Nombre:       cf_dns_getinfo.sh
+# Descripción:  Consulta tus dominios y subdominios en Cloudflare, indicando la
+#               zona de cada registro DNS. Deja traza en un fichero de log.
+# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Licencia:     MIT
+# Requisitos:   curl, jq y un token de API de Cloudflare (permiso de lectura).
+# Uso:          ./cf_dns_getinfo.sh
+# Nota:         Rellena los marcadores <...> de la configuración antes de usar.
+#===============================================================================
 # --- CONFIGURACIÓN ---
 CF_API_TOKEN="<TU_API_TOKEN>"   # Reemplaza con tu API Token de Cloudflare
 LOG_DIR=~/cloudflare/logs

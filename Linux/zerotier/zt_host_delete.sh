@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
-#
-# Script para borrar (eliminar) un host/miembro de una red ZeroTier
-# Uso: ./zt_delete_host.sh <NETWORK_ID> <MEMBER_ID>
-#
+#===============================================================================
+# Nombre:       zt_host_delete.sh
+# Descripción:  Borra (elimina) un host/miembro de una red ZeroTier. Se
+#               recomienda desautorizarlo antes de eliminarlo.
+# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Licencia:     MIT
+# Requisitos:   curl y un token de API de ZeroTier.
+# Uso:          ./zt_host_delete.sh <NETWORK_ID> <MEMBER_ID>
+# Nota:         Rellena los marcadores <...> de la configuración antes de usar.
+#===============================================================================
 
 # 🔑 API Token (pon aquí tu API token o usa variable de entorno)
 API_TOKEN="${ZT_API_TOKEN:-<TU_API_TOKEN>}"
