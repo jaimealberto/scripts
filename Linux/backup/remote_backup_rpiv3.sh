@@ -48,7 +48,7 @@ script_name=$(basename "$0") # Obtiene el nombre del script
 log_message() {
     local severity="$1" # e.g., INFO, ERROR, NOTICE
     local message="$2"
-    echo "$(date '+%b %d %H:%M:%S') $(hostname) $script_name[$BASHPID]: [${severity}] $message"
+    echo "$(date '+%b %d %H:%M:%S') $(hostname) ${script_name}[$BASHPID]: [${severity}] $message"
 }
 
 # Función para enviar un correo de alerta

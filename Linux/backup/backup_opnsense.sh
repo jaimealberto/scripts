@@ -34,7 +34,6 @@ TIME_STAMP=$(date +%H:%M:%S)
 PATH_FILE_BACKUP="<ruta destino del fichero de backup>"
 PATH_FILE_LOG="<ruta destino del fichero de log>"
 OUTPUT_BACKUP_FILE="$REMOTE_HOST$DAY.xml"
-OUTPUT_LOG_FILE="$REMOTE_HOST$DAY.log"
 MAIL_TO="<correo destino de las alertas>"
 
 # Crear archivo de log

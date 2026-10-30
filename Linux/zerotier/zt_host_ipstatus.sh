@@ -37,6 +37,7 @@ while read -r NET NETNAME; do
   fi
 
   # Obtener rango de DHCP de la red (opcional para diferenciar fija/DHCP)
+  # shellcheck disable=SC2034  # reservada para diferenciar IP fija/DHCP (uso futuro)
   DHCP_RANGES=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/network/$NET" | jq -r '.config.ipAssignmentPools[]? | "\(.ipRangeStart)-\(.ipRangeEnd)"')
 
   echo "$MEMBERS" | jq -r '
