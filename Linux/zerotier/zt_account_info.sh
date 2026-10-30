@@ -1,12 +1,14 @@
-#!/bin/bash
-###############################################################################
-# Script: zt_acount_info.sh                                                   #
-# Date: 22/08/2025                                                            #
-# Description:: Muestra información general de la cuenta de ZeroTier          #
-# Author: jaimealberto.io                                                     #
-# Requirements: jq API Token ZeroTier.                                        #
-# License: CC BY-NC-SA 4.0                                                    #
-###############################################################################
+#!/usr/bin/env bash
+#===============================================================================
+# Nombre:       zt_account_info.sh
+# Descripción:  Muestra información general de la cuenta de ZeroTier (redes y
+#               número de hosts en cada una).
+# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Licencia:     MIT
+# Requisitos:   curl, jq y un token de API de ZeroTier.
+# Uso:          ./zt_account_info.sh
+# Nota:         Rellena los marcadores <...> de la configuración antes de usar.
+#===============================================================================
 
 # 👉 Token de API de ZeroTier (genera uno en https://my.zerotier.com/account)
 TOKEN="<TU_API_TOKEN>"

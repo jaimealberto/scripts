@@ -1,0 +1,23 @@
+name: ShellCheck
+
+on:
+  push:
+    paths:
+      - '**.sh'
+      - '.github/workflows/shellcheck.yml'
+  pull_request:
+    paths:
+      - '**.sh'
+
+jobs:
+  shellcheck:
+    name: Analizar scripts con ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@2.0.0
+        env:
+          # SC1091: no seguir ficheros 'source' externos (p.ej. .env de credenciales)
+          SHELLCHECK_OPTS: -e SC1091 -S warning

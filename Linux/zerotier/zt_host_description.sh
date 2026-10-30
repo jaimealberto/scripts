@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
-#
-# Script para cambiar la descripción de un host (miembro) en una red ZeroTier
-# Uso: ./zt_update_description.sh <NETWORK_ID> <MEMBER_ID> "<NUEVA_DESCRIPCION>"
-#
+#===============================================================================
+# Nombre:       zt_host_description.sh
+# Descripción:  Cambia la descripción de un host (miembro) en una red ZeroTier.
+# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Licencia:     MIT
+# Requisitos:   curl, jq y un token de API de ZeroTier.
+# Uso:          ./zt_host_description.sh <NETWORK_ID> <MEMBER_ID> "<NUEVA_DESCRIPCION>"
+# Nota:         Rellena los marcadores <...> de la configuración antes de usar.
+#===============================================================================
 
 # 🔑 API Token (puede estar en variable de entorno ZT_API_TOKEN)
 API_TOKEN="${ZT_API_TOKEN:-<TU_API_TOKEN>}"

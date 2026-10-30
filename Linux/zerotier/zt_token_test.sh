@@ -1,12 +1,14 @@
-#!/bin/bash
-###############################################################################
-# Script: zt_token_test .sh                                                   #
-# Date: 22/08/2025                                                            #
-# Description:: Realiza un test de conexión con nuestro token                 #
-# Author: jaimealberto.io                                                     #
-# Requirements: jq API Token ZeroTier.                                        #
-# License: CC BY-NC-SA 4.0                                                    #
-###############################################################################
+#!/usr/bin/env bash
+#===============================================================================
+# Nombre:       zt_token_test.sh
+# Descripción:  Prueba el token de API de ZeroTier listando las redes de la
+#               cuenta.
+# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Licencia:     MIT
+# Requisitos:   curl, jq y un token de API de ZeroTier.
+# Uso:          ./zt_token_test.sh
+# Nota:         Rellena los marcadores <...> de la configuración antes de usar.
+#===============================================================================
 
 # 👉 Token de API de ZeroTier (genera uno en https://my.zerotier.com/account)
 TOKEN="<TU_API_TOKEN>"

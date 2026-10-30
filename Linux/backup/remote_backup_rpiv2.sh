@@ -1,39 +1,33 @@
-#!/bin/bash
-###############################################################################
-# Script: remote_backup_rpiv2.sh                                              #
-# Date: 01/08/2025 - Versión optimizada                                       #
-# Description:: Backup remoto de Raspberry Pi a través de SSH con alertas.    #
-# Author: jaimealberto.io                                                     #
-# Requirements: Conexión SSH sin contraseña (con llave), gzip y msmtp.        #
-# Config msmtp                                                                #
-# Creation of the file .msmtprc                                               #
-# account default                                                             #
-# host smtp.gmail.com                                                         #
-# port 587                                                                    #
-# from <quienenviaelcorreo@gmail.com>                                         #
-# tls on                                                                      #
-# tls_starttls on                                                             #
-# auth on                                                                     #
-# user <quienenviaelcorreo>                                                   #
-# password <passord de la cuenta que envía el correo>                         #
-# logfile ~/.msmtp.log                                                        #
-# We give the necessary permissions to the configuration file                 #
-# chmod 600 .msmtprc                                                          #
-# Checks: ping, integridad fichero de backup , envió correo si falla          #
-# Alerts: ping failure mailing or backup file integrity                       #
-# 00 1 * * * ~/scripts/remote_backup_rpiv2.sh >/dev/null 2>&1                 #
-# License: CC BY-NC-SA 4.0                                                    #
-###############################################################################
-# Mejoras respecto a al versión anterior                                      #
-#  Uso de variables y funciones: Se han agrupado las variables en un bloque,  #
-#  se ha creado una función para el envío de correos, y se ha utilizado la    #
-#  sintaxis de Bash más moderna.                                              #
-#  Manejo de errores mejorado: Las verificaciones de errores se agrupan, lo   #
-#   que hace el código más legible y eficiente. El script utiliza `set -e`    #
-#   para salir inmediatamente si un comando falla.                            #
-#  Comentarios y claridad                                                     #
-#  Ruta de logs más dinámica                                                  #
-# #############################################################################
+#!/usr/bin/env bash
+#===============================================================================
+# Nombre:       remote_backup_rpiv2.sh
+# Descripción:  Backup remoto en caliente de una Raspberry Pi a través de SSH,
+#               con verificación de integridad y alertas por correo.
+#               Versión 2 de la serie remote_backup_rpi (optimizada).
+# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Licencia:     MIT
+# Requisitos:   Acceso SSH por clave sin contraseña, gzip y msmtp.
+# Uso:          ./remote_backup_rpiv2.sh
+# Programación: crontab -e  ->  00 1 * * * ~/scripts/remote_backup_rpiv2.sh >/dev/null 2>&1
+# Nota:         Rellena los marcadores <...> de la configuración antes de usar.
+#
+# Configuración de msmtp (fichero ~/.msmtprc):
+#   account default
+#   host smtp.gmail.com
+#   port 587
+#   from <correo_origen@gmail.com>
+#   tls on
+#   tls_starttls on
+#   auth on
+#   user <correo_origen@gmail.com>
+#   password <contraseña de la cuenta que envía el correo>
+#   logfile ~/.msmtp.log
+#   Protege el fichero de configuración con: chmod 600 ~/.msmtprc
+#===============================================================================
+# Mejoras respecto a la versión anterior:
+#   - Variables agrupadas en un bloque y función para el envío de correos.
+#   - Sintaxis de Bash más moderna y manejo de errores centralizado (set -e).
+#   - Comentarios más claros y ruta de logs más dinámica.
 set -e
 # ==================== PARÁMETROS DE CONFIGURACIÓN ====================
 host_remoto="<hostname_descriptivo>"

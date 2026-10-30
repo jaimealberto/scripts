@@ -1,14 +1,16 @@
-import os
+#!/usr/bin/env python3
+#===============================================================================
+# Nombre:       cf_subdomain_create.py
+# Descripción:  Crea un subdominio (registro DNS tipo A) en un dominio ya
+#               registrado en Cloudflare, desde la terminal.
+# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Licencia:     MIT
+# Requisitos:   Python 3, requests y un token de API de Cloudflare (edición DNS).
+# Uso:          ./cf_subdomain_create.py <dominio_principal> <nombre_subdominio>
+# Nota:         Rellena los marcadores <...> de la configuración antes de usar.
+#===============================================================================
 import requests
 import sys
-###############################################################################
-# Script: cf_subdomain_create.py                                              #
-# Date: 21/08/2025                                                            #
-# Description:: Creación de subdominios desde el terminal                     #
-# Author: jaimealberto.io                                                     #
-# Requirements: jq API Token CloudFlare read.                                 #
-# License: CC BY-NC-SA 4.0                                                    #
-###############################################################################
 # --- CONFIGURACIÓN ---
 #
 # Coloca aquí tu token de API de Cloudflare.
@@ -57,8 +59,8 @@ if __name__ == "__main__":
     domain = sys.argv[1]
     subdomain_name = sys.argv[2]
     
-    if CLOUDFLARE_API_TOKEN == "TU_TOKEN_DE_API_AQUI":
-        print("Error: Por favor, reemplaza 'TU_TOKEN_DE_API_AQUI' en el script con tu token de Cloudflare.")
+    if CLOUDFLARE_API_TOKEN == "<TU_API_TOKEN>":
+        print("Error: Por favor, reemplaza '<TU_API_TOKEN>' en el script con tu token de Cloudflare.")
         sys.exit(1)
 
     headers = {

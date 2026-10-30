@@ -1,12 +1,14 @@
-#!/bin/bash
-###############################################################################
-# Script: zt_host_ipstatus.sh                                                 #
-# Date: 22/08/2025                                                            #
-# Description:: Muestra información de hosts ip y staus  de ZeroTier          #
-# Author: jaimealberto.io                                                     #
-# Requirements: jq API Token ZeroTier.                                        #
-# License: CC BY-NC-SA 4.0                                                    #
-###############################################################################
+#!/usr/bin/env bash
+#===============================================================================
+# Nombre:       zt_host_ipstatus.sh
+# Descripción:  Muestra el estado de los hosts de cada red ZeroTier junto con
+#               su IP asignada y si es fija o por DHCP.
+# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Licencia:     MIT
+# Requisitos:   curl, jq y un token de API de ZeroTier.
+# Uso:          ./zt_host_ipstatus.sh
+# Nota:         Rellena los marcadores <...> de la configuración antes de usar.
+#===============================================================================
 
 # 👉 Token de API de ZeroTier (genera uno en https://my.zerotier.com/account)
 TOKEN="<TU_API_TOKEN>"
@@ -35,6 +37,7 @@ while read -r NET NETNAME; do
   fi
 
   # Obtener rango de DHCP de la red (opcional para diferenciar fija/DHCP)
+  # shellcheck disable=SC2034  # reservada para diferenciar IP fija/DHCP (uso futuro)
   DHCP_RANGES=$(curl -s -H "Authorization: Bearer $TOKEN" "$API_URL/network/$NET" | jq -r '.config.ipAssignmentPools[]? | "\(.ipRangeStart)-\(.ipRangeEnd)"')
 
   echo "$MEMBERS" | jq -r '

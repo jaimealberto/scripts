@@ -1,31 +1,30 @@
-#!/bin/bash
-###############################################################################
-# Script: remote_backup_rpiv3.sh                                              #
-# Date: 08/08/2025 - Versión optimizada formato log                           #
-# Description:: Backup remoto de Raspberry Pi a través de SSH con alertas.    #
-# Author: jaimealberto.io                                                     #
-# Requirements: Conexión SSH sin contraseña (con llave), gzip y msmtp.        #
-# Config msmtp                                                                #
-# Creation of the file .msmtprc                                               #
-# account default                                                             #
-# host smtp.gmail.com                                                         #
-# port 587                                                                    #
-# from <quienenviaelcorreo@gmail.com>                                         #
-# tls on                                                                      #
-# tls_starttls on                                                             #
-# auth on                                                                     #
-# user <quienenviaelcorreo>                                                   #
-# password <passord de la cuenta que envía el correo>                         #
-# logfile ~/.msmtp.log                                                        #
-# We give the necessary permissions to the configuration file                 #
-# chmod 600 .msmtprc                                                          #
-# Checks: ping, integridad fichero de backup , envió correo si falla          #
-# Alerts: ping failure mailing or backup file integrity                       #
-# 00 1 * * * ~/scripts/remote_backup_rpiv3.sh >/dev/null 2>&1                 #
-# License: CC BY-NC-SA 4.0                                                    #
-###############################################################################
-# Mejoras respecto a al versión anterior                                      #
-# Se formatea el log del script en formato estándar de syslog                 #
+#!/usr/bin/env bash
+#===============================================================================
+# Nombre:       remote_backup_rpiv3.sh
+# Descripción:  Backup remoto en caliente de una Raspberry Pi a través de SSH,
+#               con verificación de integridad y alertas por correo.
+#               Versión 3 de la serie (log en formato estándar de syslog).
+#               Es la versión actual recomendada.
+# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Licencia:     MIT
+# Requisitos:   Acceso SSH por clave sin contraseña, gzip y msmtp.
+# Uso:          ./remote_backup_rpiv3.sh
+# Programación: crontab -e  ->  00 1 * * * ~/scripts/remote_backup_rpiv3.sh >/dev/null 2>&1
+# Nota:         Rellena los marcadores <...> de la configuración antes de usar.
+#
+# Configuración de msmtp (fichero ~/.msmtprc):
+#   account default
+#   host smtp.gmail.com
+#   port 587
+#   from <correo_origen@gmail.com>
+#   tls on
+#   tls_starttls on
+#   auth on
+#   user <correo_origen@gmail.com>
+#   password <contraseña de la cuenta que envía el correo>
+#   logfile ~/.msmtp.log
+#   Protege el fichero de configuración con: chmod 600 ~/.msmtprc
+#===============================================================================
 set -e
 # ==================== PARÁMETROS DE CONFIGURACIÓN ====================
 host_remoto="<hostname_descriptivo>"
@@ -49,7 +48,7 @@ script_name=$(basename "$0") # Obtiene el nombre del script
 log_message() {
     local severity="$1" # e.g., INFO, ERROR, NOTICE
     local message="$2"
-    echo "$(date '+%b %d %H:%M:%S') $(hostname) $script_name[$BASHPID]: [${severity}] $message"
+    echo "$(date '+%b %d %H:%M:%S') $(hostname) ${script_name}[$BASHPID]: [${severity}] $message"
 }
 
 # Función para enviar un correo de alerta

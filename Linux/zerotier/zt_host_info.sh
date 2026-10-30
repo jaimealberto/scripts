@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
-###############################################################################
-# Script: zt_host_info.sh                                                     #
-# Date: 22/08/2025                                                            #
-# Description:: Muestra información de los hosts cuenta de ZeroTier           #
-# Author: jaimealberto.io                                                     #
-# Requirements: jq API Token ZeroTier.                                        #
-# License: CC BY-NC-SA 4.0                                                    #
-###############################################################################
+#===============================================================================
+# Nombre:       zt_host_info.sh
+# Descripción:  Muestra información de los hosts y redes de la cuenta ZeroTier.
+# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Licencia:     MIT
+# Requisitos:   curl, jq, awk y un token de API de ZeroTier.
+# Uso:          ./zt_host_info.sh
+# Nota:         Rellena los marcadores <...> de la configuración antes de usar.
+#===============================================================================
 
 # 👉 Pon aquí tu token
 TOKEN="<TU_API_TOKEN>"

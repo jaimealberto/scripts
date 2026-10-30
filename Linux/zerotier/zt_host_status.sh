@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
-###############################################################################
-# Script: zt_host_status.sh                                                   #
-# Date: 22/08/2025                                                            #
-# Description:: Muestra información de estado de los hosts  ZeroTier          #
-# Author: jaimealberto.io                                                     #
-# Requirements: jq API Token ZeroTier.                                        #
-# License: CC BY-NC-SA 4.0                                                    #
-###############################################################################
+#===============================================================================
+# Nombre:       zt_host_status.sh
+# Descripción:  Muestra el estado de los hosts de todas las redes ZeroTier
+#               (autorización y en línea/inactivo/desconectado), con color.
+# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Licencia:     MIT
+# Requisitos:   curl, jq, awk y un token de API de ZeroTier.
+# Uso:          ./zt_host_status.sh
+# Nota:         Rellena los marcadores <...> de la configuración antes de usar.
+#===============================================================================
 # 👉 Tu token de ZeroTier
 TOKEN="<TU_API_TOKEN>"
 

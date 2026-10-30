@@ -1,12 +1,13 @@
-#!/bin/bash
-###############################################################################
-# Script: zt_host_ipchange.sh                                                 #
-# Date: 22/08/2025                                                            #
-# Description:: Cambia la ip asignada dentro de una red a un hosts            #
-# Author: jaimealberto.io                                                     #
-# Requirements: jq API Token ZeroTier.                                        #
-# License: CC BY-NC-SA 4.0                                                    #
-###############################################################################
+#!/usr/bin/env bash
+#===============================================================================
+# Nombre:       zt_host_ipchange.sh
+# Descripción:  Cambia la IP asignada a un host dentro de una red ZeroTier.
+# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Licencia:     MIT
+# Requisitos:   curl, jq y un token de API de ZeroTier.
+# Uso:          ./zt_host_ipchange.sh <NETWORK_ID> <MEMBER_ID> <NUEVA_IP>
+# Nota:         Rellena los marcadores <...> de la configuración antes de usar.
+#===============================================================================
 
 # 👉 Token de API de ZeroTier (genera uno en https://my.zerotier.com/account)
 TOKEN="<TU_API_TOKEN>"
