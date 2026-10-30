@@ -3,7 +3,7 @@
 # Nombre:       zt_account_info.sh
 # Descripción:  Muestra información general de la cuenta de ZeroTier (redes y
 #               número de hosts en cada una).
-# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Autor:        JaimeAlberto · https://jaimealberto.io
 # Licencia:     MIT
 # Requisitos:   curl, jq y un token de API de ZeroTier.
 # Uso:          ./zt_account_info.sh

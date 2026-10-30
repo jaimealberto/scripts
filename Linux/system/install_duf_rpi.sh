@@ -4,7 +4,7 @@
 # Descripción:  Instala la utilidad duf en Raspberry Pi OS descargando el
 #               binario más reciente desde GitHub, ya que no está disponible
 #               en los repositorios oficiales de Raspberry Pi OS.
-# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Autor:        JaimeAlberto · https://jaimealberto.io
 # Licencia:     MIT
 # Requisitos:   curl, wget, tar y dpkg. Usa sudo para instalar en /usr/local/bin.
 # Uso:          ./install_duf_rpi.sh

@@ -3,7 +3,7 @@
 # Nombre:       zt_host_ipstatus.sh
 # Descripción:  Muestra el estado de los hosts de cada red ZeroTier junto con
 #               su IP asignada y si es fija o por DHCP.
-# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Autor:        JaimeAlberto · https://jaimealberto.io
 # Licencia:     MIT
 # Requisitos:   curl, jq y un token de API de ZeroTier.
 # Uso:          ./zt_host_ipstatus.sh

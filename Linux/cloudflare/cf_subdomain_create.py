@@ -3,7 +3,7 @@
 # Nombre:       cf_subdomain_create.py
 # Descripción:  Crea un subdominio (registro DNS tipo A) en un dominio ya
 #               registrado en Cloudflare, desde la terminal.
-# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Autor:        JaimeAlberto · https://jaimealberto.io
 # Licencia:     MIT
 # Requisitos:   Python 3, requests y un token de API de Cloudflare (edición DNS).
 # Uso:          ./cf_subdomain_create.py <dominio_principal> <nombre_subdominio>

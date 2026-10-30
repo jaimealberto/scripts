@@ -3,7 +3,7 @@
 # Nombre:       zerotier.sh
 # Descripción:  Instala y configura el cliente ZeroTier y une el equipo a una
 #               red indicada por su ID.
-# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Autor:        JaimeAlberto · https://jaimealberto.io
 # Licencia:     MIT
 # Requisitos:   curl, gpg y systemd. Ejecutar como root.
 # Uso:          ./zerotier.sh

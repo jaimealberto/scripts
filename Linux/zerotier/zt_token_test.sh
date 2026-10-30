@@ -3,7 +3,7 @@
 # Nombre:       zt_token_test.sh
 # Descripción:  Prueba el token de API de ZeroTier listando las redes de la
 #               cuenta.
-# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Autor:        JaimeAlberto · https://jaimealberto.io
 # Licencia:     MIT
 # Requisitos:   curl, jq y un token de API de ZeroTier.
 # Uso:          ./zt_token_test.sh

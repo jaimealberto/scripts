@@ -2,7 +2,7 @@
 #===============================================================================
 # Nombre:       zt_host_description.sh
 # Descripción:  Cambia la descripción de un host (miembro) en una red ZeroTier.
-# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Autor:        JaimeAlberto · https://jaimealberto.io
 # Licencia:     MIT
 # Requisitos:   curl, jq y un token de API de ZeroTier.
 # Uso:          ./zt_host_description.sh <NETWORK_ID> <MEMBER_ID> "<NUEVA_DESCRIPCION>"

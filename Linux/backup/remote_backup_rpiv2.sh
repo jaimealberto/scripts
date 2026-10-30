@@ -4,7 +4,7 @@
 # Descripción:  Backup remoto en caliente de una Raspberry Pi a través de SSH,
 #               con verificación de integridad y alertas por correo.
 #               Versión 2 de la serie remote_backup_rpi (optimizada).
-# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Autor:        JaimeAlberto · https://jaimealberto.io
 # Licencia:     MIT
 # Requisitos:   Acceso SSH por clave sin contraseña, gzip y msmtp.
 # Uso:          ./remote_backup_rpiv2.sh

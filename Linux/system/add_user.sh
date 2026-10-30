@@ -3,7 +3,7 @@
 # Nombre:       add_user.sh
 # Descripción:  Da de alta un usuario para administración remota por SSH con
 #               clave pública y lo añade a sudoers (NOPASSWD).
-# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Autor:        JaimeAlberto · https://jaimealberto.io
 # Licencia:     MIT
 # Requisitos:   useradd y privilegios de root.
 # Uso:          ./add_user.sh

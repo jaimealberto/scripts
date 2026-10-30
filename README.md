@@ -78,5 +78,5 @@ Distribuido bajo licencia **MIT**. Consulta el fichero [LICENSE](LICENSE) para m
 
 ## 👤 Autor
 
-**Jaime Alberto Vicente** — Administración de sistemas e infraestructura
+**JaimeAlberto** — Administración de sistemas e infraestructura
 🌐 Blog: [jaimealberto.io](https://jaimealberto.io)

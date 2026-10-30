@@ -3,7 +3,7 @@
 # Nombre:       cf_dns_getinfo.sh
 # Descripción:  Consulta tus dominios y subdominios en Cloudflare, indicando la
 #               zona de cada registro DNS. Deja traza en un fichero de log.
-# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Autor:        JaimeAlberto · https://jaimealberto.io
 # Licencia:     MIT
 # Requisitos:   curl, jq y un token de API de Cloudflare (permiso de lectura).
 # Uso:          ./cf_dns_getinfo.sh

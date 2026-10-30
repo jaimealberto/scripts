@@ -3,7 +3,7 @@
 # Nombre:       ping_notify.sh
 # Descripción:  Monitoriza por ping una lista de hosts (hosts.lst) y avisa en
 #               el escritorio mediante notify-send según el resultado.
-# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Autor:        JaimeAlberto · https://jaimealberto.io
 # Licencia:     MIT
 # Requisitos:   iputils-ping y libnotify-bin (notify-send).
 # Uso:          ./ping_notify.sh

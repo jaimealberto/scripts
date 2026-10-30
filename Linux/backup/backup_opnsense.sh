@@ -3,7 +3,7 @@
 # Nombre:       backup_opnsense.sh
 # Descripción:  Backup remoto de la configuración de OPNsense a través de su
 #               API, con alerta por correo si el host no responde al ping.
-# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Autor:        JaimeAlberto · https://jaimealberto.io
 # Licencia:     MIT
 # Requisitos:   curl, msmtp y una API key/secret de OPNsense.
 # Uso:          ./backup_opnsense.sh

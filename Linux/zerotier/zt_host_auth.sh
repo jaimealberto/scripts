@@ -3,7 +3,7 @@
 # Nombre:       zt_host_auth.sh
 # Descripción:  Lista los miembros de una red ZeroTier y autoriza o desautoriza
 #               hosts (uno, varios o todos los pendientes).
-# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Autor:        JaimeAlberto · https://jaimealberto.io
 # Licencia:     MIT
 # Requisitos:   curl, jq y un token de API de ZeroTier.
 # Uso:          ./zt_host_auth.sh {list|authorize|unauthorize} <NETWORK_ID> [MEMBER]

@@ -5,7 +5,7 @@
 #               con verificación de integridad y alertas por correo.
 #               Versión 3 de la serie (log en formato estándar de syslog).
 #               Es la versión actual recomendada.
-# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Autor:        JaimeAlberto · https://jaimealberto.io
 # Licencia:     MIT
 # Requisitos:   Acceso SSH por clave sin contraseña, gzip y msmtp.
 # Uso:          ./remote_backup_rpiv3.sh

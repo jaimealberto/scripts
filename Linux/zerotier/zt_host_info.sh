@@ -2,7 +2,7 @@
 #===============================================================================
 # Nombre:       zt_host_info.sh
 # Descripción:  Muestra información de los hosts y redes de la cuenta ZeroTier.
-# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Autor:        JaimeAlberto · https://jaimealberto.io
 # Licencia:     MIT
 # Requisitos:   curl, jq, awk y un token de API de ZeroTier.
 # Uso:          ./zt_host_info.sh

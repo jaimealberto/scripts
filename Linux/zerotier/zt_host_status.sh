@@ -3,7 +3,7 @@
 # Nombre:       zt_host_status.sh
 # Descripción:  Muestra el estado de los hosts de todas las redes ZeroTier
 #               (autorización y en línea/inactivo/desconectado), con color.
-# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Autor:        JaimeAlberto · https://jaimealberto.io
 # Licencia:     MIT
 # Requisitos:   curl, jq, awk y un token de API de ZeroTier.
 # Uso:          ./zt_host_status.sh

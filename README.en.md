@@ -78,5 +78,5 @@ Distributed under the **MIT** license. See the [LICENSE](LICENSE) file for detai
 
 ## 👤 Author
 
-**Jaime Alberto Vicente** — Systems administration and infrastructure
+**JaimeAlberto** — Systems administration and infrastructure
 🌐 Blog: [jaimealberto.io](https://jaimealberto.io)

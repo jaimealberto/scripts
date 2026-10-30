@@ -3,7 +3,7 @@
 # Nombre:       zt_host_infoc.sh
 # Descripción:  Muestra información de los hosts de todas las redes ZeroTier,
 #               con salida en color y estado en línea/inactivo/desconectado.
-# Autor:        Jaime Alberto Vicente · https://jaimealberto.io
+# Autor:        JaimeAlberto · https://jaimealberto.io
 # Licencia:     MIT
 # Requisitos:   curl, jq, awk y un token de API de ZeroTier.
 # Uso:          ./zt_host_infoc.sh
